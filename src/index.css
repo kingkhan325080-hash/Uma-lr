@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2196F3;
+  --color-primary-dark: #1976D2;
+  --color-bg-light: #F5F7FA;
+  --color-surface: #FFFFFF;
+  --color-text-main: #1A1C1E;
+  --color-text-sub: #44474E;
+  --color-line: #C4C7C8;
+
+  --color-p-color: #2E7D32;
+  --color-a-color: #D32F2F;
+  --color-h-color: #F57C00;
+  --color-l-color: #0288D1;
+
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+}
+
+body {
+  background-color: #F5F7FA;
+  color: #1A1C1E;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Let's style the standard components to have that crisp, technical data grid feel */
+.register-card {
+  background-color: #FFFFFF;
+  border: 1px solid #C4C7C8;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.table-header {
+  background-color: #F0F4F8;
+  border-bottom: 1px solid #C4C7C8;
+}
+
+.th {
+  padding: 12px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #44474E;
+  text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.row {
+  border-bottom: 1px solid #E5E7EB;
+  transition: background 0.1s;
+}
+
+.row:hover {
+  background-color: #F9FAFB;
+}
+
+.td {
+  padding: 10px 8px;
+  font-size: 13px;
+  border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.status {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.status-p {
+  color: #2E7D32;
+  background-color: rgba(46, 125, 50, 0.1);
+}
+
+.status-a {
+  color: #D32F2F;
+  background-color: rgba(211, 47, 47, 0.1);
+}
+
+.status-h {
+  color: #F57C00;
+  background-color: rgba(245, 124, 0, 0.1);
+}
+
+.status-l {
+  color: #0288D1;
+  background-color: rgba(2, 136, 209, 0.1);
+}
+
+.total-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: #EEEEEE;
+  color: #44474E;
+}
+
+.ot-badge {
+  background-color: #F3E5F5;
+  color: #7B1FA2;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.ot-hover-indicator {
+  width: 4px;
+  height: 4px;
+  background-color: #7B1FA2;
+  border-radius: 50%;
+}
+
+/* Print styles for traditional paper attendance register formatting */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+  
+  /* Hide all interactive non-print elements */
+  aside, header, nav, button, .no-print, select, input, .no-print-container, .bg-indigo-50, .fixed, .absolute, [role="button"] {
+    display: none !important;
+  }
+  
+  body, html {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 8pt !important;
+  }
+  
+  /* Reset container styles to render the table fully without scrolling */
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+  }
+  
+  .bg-white {
+    background-color: #FFFFFF !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  
+  /* Force table container to expand fully on the page */
+  div.overflow-x-auto, div.overflow-y-auto, div.overflow-auto, .overflow-hidden {
+    overflow: visible !important;
+    max-height: none !important;
+    max-width: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    page-break-inside: auto !important;
+    margin-top: 15px !important;
+  }
+  
+  tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+  
+  th, td {
+    border: 1px solid #333333 !important;
+    color: #000000 !important;
+    background-color: transparent !important;
+    padding: 3px 2px !important;
+    font-size: 7.5pt !important;
+    font-family: "Courier New", Courier, monospace !important;
+    text-align: center !important;
+  }
+  
+  th {
+    font-weight: bold !important;
+    font-family: "Helvetica Neue", Arial, sans-serif !important;
+    background-color: #F0F4F8 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Disable sticky position for print to avoid overlapping headers */
+  .sticky {
+    position: static !important;
+    background-color: transparent !important;
+  }
+  
+  /* Keep worker name and designation visible but normal styling */
+  td.sticky, th.sticky {
+    position: static !important;
+    font-family: "Helvetica Neue", Arial, sans-serif !important;
+    text-align: left !important;
+    max-width: none !important;
+    white-space: nowrap !important;
+  }
+}

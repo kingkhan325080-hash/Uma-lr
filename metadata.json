@@ -1,0 +1,6 @@
+{
+  "name": "Labour Attendance & Overtime Register",
+  "description": "An efficient digital attendance and overtime register for construction sites, contractors, and factories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
